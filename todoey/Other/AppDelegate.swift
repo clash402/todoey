@@ -6,31 +6,34 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        // /Users/joshcourtney/Library/Developer/CoreSimulator/Devices/EBE9687B-63F8-475F-A62A-96A30F9E6D1F/data/Containers/Data/Application/3C2110D5-4DFE-407B-8897-BE83404F2105/Documents/default.realm
+        
+        do {
+            _ = try Realm()
+        } catch {
+            print(error)
+        }
+        
         return true
     }
 
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+        
     }
 
-
 }
-
